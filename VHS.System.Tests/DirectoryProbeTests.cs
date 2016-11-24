@@ -1,11 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VHS.System;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Moq;
+using VHS.System.FilenamesCollector;
 using VHS.System.FilesystemLayer;
 
 namespace VHS.System.Tests
@@ -13,11 +9,6 @@ namespace VHS.System.Tests
     [TestClass()]
     public class DirectoryProbeTests
     {
-        public DirectoryProbeTests()
-        {
-            
-        }
-
         [TestMethod()]
         public void WorkIfDirectoryEmptyReturnEmptyListTest()
         {
@@ -102,7 +93,6 @@ namespace VHS.System.Tests
             const string file1 = "file1.txt";
             const string file2 = "file2.txt";
             var flsMock = new Mock<IFilesystemLayer>();
-            
             flsMock.Setup(layer => layer.GetAllFilesInDirectory(It.IsAny<string>())).Returns(new List<string>());
             flsMock.Setup(layer => layer.GetAllSubdirectoriesInDirectory(It.IsAny<string>())).Returns(new List<string>() { subfolder });
             flsMock.Setup(layer => layer.GetAllFilesInDirectory(subfolder)).Returns(new List<string>() { file1, file2});

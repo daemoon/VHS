@@ -1,36 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using FSL = VHS.System.FilesystemLayer;
 
-namespace VHS.System
+namespace VHS.System.FilenamesCollector
 {
-    public class FilenamesCollector
-    {
-        private readonly FSL.IFilesystemLayer _filesystemLayer;
-
-        public FilenamesCollector(FSL.IFilesystemLayer fsl)
-        {
-            _filesystemLayer = fsl;
-        }
-
-        public ICollection<string> ReturnAllFilenamesInBasePath(string basePath)
-        {
-            var probe = new DirectoryProbe(basePath, _filesystemLayer);
-            return probe.Work();
-        }
-
-        private IEnumerable<string> CollectFilesInPath(string path)
-        {
-            return _filesystemLayer.GetAllFilesInDirectory(path);
-        }
-    }
-
     public class DirectoryProbe
     {
         private readonly string _basePath;
-        private readonly FSL.IFilesystemLayer _fsl;
+        private readonly FilesystemLayer.IFilesystemLayer _fsl;
 
-        public DirectoryProbe(string basePath, FSL.IFilesystemLayer fsl)
+        public DirectoryProbe(string basePath, FilesystemLayer.IFilesystemLayer fsl)
         {
             _basePath = basePath;
             _fsl = fsl;
