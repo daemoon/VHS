@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VHS", "VHS\VHS.csproj", "{48A922EC-9423-4467-9ED2-F4B0AEF6E001}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSH.System", "VSH.System\VSH.System.csproj", "{DF3E7C2B-D2FB-4E4B-B58D-9851ABE542AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VHS.System", "VSH.System\VHS.System.csproj", "{DF3E7C2B-D2FB-4E4B-B58D-9851ABE542AA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VHS.System.Tests", "VHS.System.Tests\VHS.System.Tests.csproj", "{92D54802-ABF2-4C11-8AEE-1F30FAF47443}"
 EndProject

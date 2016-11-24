@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileContentReader.cs" />
+    <Compile Include="Filesystem\FilesystemDirectoryExceptionHandlerWrapper.cs" />
+    <Compile Include="Filesystem\FilesystemLayer.cs" />
+    <Compile Include="Filesystem\FilesystemLayerException.cs" />
     <Compile Include="VersionHandlingSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
