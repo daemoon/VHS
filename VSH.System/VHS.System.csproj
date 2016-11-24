@@ -7,8 +7,8 @@
     <ProjectGuid>{DF3E7C2B-D2FB-4E4B-B58D-9851ABE542AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VSH.System</RootNamespace>
-    <AssemblyName>VSH.System</AssemblyName>
+    <RootNamespace>VHS.System</RootNamespace>
+    <AssemblyName>VHS.System</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,11 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Filesystem\FilesystemDirectoryExceptionHandlerWrapper.cs" />
-    <Compile Include="Filesystem\FilesystemLayer.cs" />
-    <Compile Include="Filesystem\FilesystemLayerException.cs" />
+    <Compile Include="FilesystemLayer\FilesystemDirectoryExceptionHandlerWrapper.cs" />
+    <Compile Include="FilesystemLayer\FilesystemLayer.cs" />
+    <Compile Include="FilesystemLayer\FilesystemLayerException.cs" />
+    <Compile Include="FilesystemLayer\IFilesystemLayer.cs" />
     <Compile Include="VersionHandlingSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FilenamesCollector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

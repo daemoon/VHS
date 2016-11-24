@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace VSH.System.Filesystem
+namespace VHS.System.FilesystemLayer
 {
     public class FilesystemDirectoryExceptionHandlerWrapper
     {

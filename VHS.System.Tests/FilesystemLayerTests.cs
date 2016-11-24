@@ -1,52 +1,57 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VSH.System;
-using VSH.System.Filesystem;
+using VHS.System.FilesystemLayer;
 
 namespace VHS.System.Tests
 {
     [TestClass]
     public class FilesystemLayerTests
     {
+        private readonly FilesystemLayer.FilesystemLayer _filesystemLayer;
+
+        public FilesystemLayerTests()
+        {
+            _filesystemLayer = new FilesystemLayer.FilesystemLayer();
+        }
         [TestMethod]
         [ExpectedException(typeof(FilesystemLayerException))]
         public void GetAllSubirectoriesEmptyFilenameShouldThrowIncorrectNameException()
         {
-            FilesystemLayer.GetAllSubdirectoriesInDirectory(string.Empty);
+            _filesystemLayer.GetAllSubdirectoriesInDirectory(string.Empty);
         }
 
         [TestMethod]
         [ExpectedException(typeof(FilesystemLayerException))]
         public void GetAllSubirectoriesNullFilenameShouldThrowIncorrectNameException()
         {
-            FilesystemLayer.GetAllSubdirectoriesInDirectory(null);
+            _filesystemLayer.GetAllSubdirectoriesInDirectory(null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(FilesystemLayerException))]
         public void GetAllSubirectoriesInvalidCharsShouldThrowIncorrectNameException()
         {
-            FilesystemLayer.GetAllSubdirectoriesInDirectory(@"<>");
+            _filesystemLayer.GetAllSubdirectoriesInDirectory(@"<>");
         }
 
         [TestMethod]
         [ExpectedException(typeof(FilesystemLayerException))]
         public void GetAllFilesEmptyFilenameShouldThrowIncorrectNameException()
         {
-            FilesystemLayer.GetAllFilesInDirectory(string.Empty);
+            _filesystemLayer.GetAllFilesInDirectory(string.Empty);
         }
 
         [TestMethod]
         [ExpectedException(typeof(FilesystemLayerException))]
         public void GetAllFilesNullFilenameShouldThrowIncorrectNameException()
         {
-            FilesystemLayer.GetAllFilesInDirectory(null);
+            _filesystemLayer.GetAllFilesInDirectory(null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(FilesystemLayerException))]
         public void GetAllFilesInvalidCharsShouldThrowIncorrectNameException()
         {
-            FilesystemLayer.GetAllFilesInDirectory(@"<>");
+            _filesystemLayer.GetAllFilesInDirectory(@"<>");
         }
    
 }

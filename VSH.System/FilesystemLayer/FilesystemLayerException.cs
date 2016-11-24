@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace VSH.System.Filesystem
+namespace VHS.System.FilesystemLayer
 {
     public class FilesystemLayerException : Exception
     {
