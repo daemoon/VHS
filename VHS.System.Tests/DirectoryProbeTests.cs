@@ -134,5 +134,30 @@ namespace VHS.System.Tests
             Assert.IsTrue(result.Contains(subfolder + "/" + file2));
             Assert.IsTrue(result.Contains(subfolder + "/" + subsubfolder));
         }
+
+        [TestMethod]
+        public void WorkCorrectylConcatenatesThirdLevelFolderNamesFolder()
+        {
+            const string subfolder = "subfolder";
+            const string subsubfolder = "subfolder2";
+            const string subsubsubfolder = "subfolder3";
+            const string file1 = "file1.txt";
+            var flsMock = new Mock<IFilesystemLayer>();
+
+            flsMock.Setup(layer => layer.GetAllFilesInDirectory(It.IsAny<string>())).Returns(new List<string>());
+            flsMock.Setup(layer => layer.GetAllSubdirectoriesInDirectory(It.IsAny<string>())).Returns(new List<string>() { subfolder });
+            flsMock.Setup(layer => layer.GetAllSubdirectoriesInDirectory(subfolder)).Returns(new List<string>() { subsubfolder });
+            flsMock.Setup(layer => layer.GetAllFilesInDirectory(subsubfolder)).Returns(new List<string>());
+            flsMock.Setup(layer => layer.GetAllSubdirectoriesInDirectory(subsubfolder)).Returns(new List<string>() {subsubsubfolder});
+            flsMock.Setup(layer => layer.GetAllFilesInDirectory(subsubsubfolder)).Returns(new List<string>() {file1});
+            flsMock.Setup(layer => layer.GetAllSubdirectoriesInDirectory(subsubsubfolder)).Returns(new List<string>());
+            var probe = new DirectoryProbe(string.Empty, flsMock.Object);
+
+            var result = probe.Work();
+
+            Assert.IsInstanceOfType(result, typeof(List<string>));
+            Assert.IsTrue(result.Count == 4);
+            Assert.IsTrue(result.Contains(subfolder + "/" + subsubfolder + "/" +subsubsubfolder + "/" + file1));
+        }
     }
 }
