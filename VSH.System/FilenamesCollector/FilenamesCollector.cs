@@ -2,7 +2,7 @@
 
 namespace VHS.System.FilenamesCollector
 {
-    public class FilenamesCollector
+    public class FilenamesCollector : IFilenamesCollector
     {
         private readonly FilesystemLayer.IFilesystemLayer _filesystemLayer;
 
@@ -15,11 +15,6 @@ namespace VHS.System.FilenamesCollector
         {
             var probe = new DirectoryProbe(basePath, _filesystemLayer);
             return probe.Work();
-        }
-
-        private IEnumerable<string> CollectFilesInPath(string path)
-        {
-            return _filesystemLayer.GetAllFilesInDirectory(path);
         }
     }
 }

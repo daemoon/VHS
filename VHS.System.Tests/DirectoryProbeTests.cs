@@ -43,7 +43,7 @@ namespace VHS.System.Tests
         }
 
         [TestMethod]
-        public void WorkReturnsSubfoldersInRootFolder()
+        public void WorkDoesntReturnSubfoldersInRootFolder()
         {
             const string dirname1 = "folder1";
             const string dirname2 = "folder2";
@@ -59,13 +59,11 @@ namespace VHS.System.Tests
             var result = probe.Work();
 
             Assert.IsInstanceOfType(result, typeof(List<string>));
-            Assert.IsTrue(result.Count == 2);
-            Assert.AreEqual(result[0], dirname1);
-            Assert.AreEqual(result[1], dirname2);
+            Assert.IsTrue(result.Count == 0);
         }
 
         [TestMethod]
-        public void WorkReturnsSubfoldersAndFilesInRootFolder()
+        public void WorkReturnOnlyFilesInRootFolder()
         {
             const string dirname = "folder1";
             const string filename1 = "file1.txt";
@@ -80,14 +78,13 @@ namespace VHS.System.Tests
             var result = probe.Work();
 
             Assert.IsInstanceOfType(result, typeof(List<string>));
-            Assert.IsTrue(result.Count == 3);
-            Assert.IsTrue(result.Contains(dirname));
+            Assert.IsTrue(result.Count == 2);
             Assert.IsTrue(result.Contains(filename1));
             Assert.IsTrue(result.Contains(filename2));
         }
 
         [TestMethod]
-        public void WorkReturnsFilesInSubfolderAndSubfolderFolder()
+        public void WorkReturnsOnlyFilesInSubfolder()
         {
             const string subfolder = "subfolder";
             const string file1 = "file1.txt";
@@ -102,14 +99,13 @@ namespace VHS.System.Tests
             var result = probe.Work();
 
             Assert.IsInstanceOfType(result, typeof(List<string>));
-            Assert.IsTrue(result.Count == 3);
-            Assert.IsTrue(result.Contains(subfolder));
+            Assert.IsTrue(result.Count == 2);
             Assert.IsTrue(result.Contains(subfolder + "/" + file1));
             Assert.IsTrue(result.Contains(subfolder + "/" + file2));
         }
 
         [TestMethod]
-        public void WorkReturnsFilesAndSubfoldersInSubfolderAndSubfolderFolder()
+        public void WorkReturnsFilesInSubSubSubFolder()
         {
             const string subfolder = "subfolder";
             const string subsubfolder = "subfolder2";
@@ -128,11 +124,9 @@ namespace VHS.System.Tests
             var result = probe.Work();
 
             Assert.IsInstanceOfType(result, typeof(List<string>));
-            Assert.IsTrue(result.Count == 4);
-            Assert.IsTrue(result.Contains(subfolder));
+            Assert.IsTrue(result.Count == 2);
             Assert.IsTrue(result.Contains(subfolder + "/" + file1));
             Assert.IsTrue(result.Contains(subfolder + "/" + file2));
-            Assert.IsTrue(result.Contains(subfolder + "/" + subsubfolder));
         }
 
         [TestMethod]
@@ -156,7 +150,7 @@ namespace VHS.System.Tests
             var result = probe.Work();
 
             Assert.IsInstanceOfType(result, typeof(List<string>));
-            Assert.IsTrue(result.Count == 4);
+            Assert.IsTrue(result.Count == 1);
             Assert.IsTrue(result.Contains(subfolder + "/" + subsubfolder + "/" +subsubsubfolder + "/" + file1));
         }
     }

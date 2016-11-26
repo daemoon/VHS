@@ -7,17 +7,19 @@ namespace VHS.System.FilesystemLayer
     {
         public enum FSLExceptionType
         {
-            UnableToAccessDirectory,
+            UnableToAccess,
             IncorrectName,
-            PathIsFile
+            PathIsFileOrIOError,
+            FileOrDirectoryNotFound
         }
 
         private static readonly Dictionary<FSLExceptionType, string> TypeToMessageMapping = new Dictionary
             <FSLExceptionType, string>()
             {
                 {FSLExceptionType.IncorrectName, "Given path seems to be incorrect."},
-                {FSLExceptionType.UnableToAccessDirectory, "You are unable to access this directory."},
-                {FSLExceptionType.PathIsFile, "Seems that path is pointing to file while path must be directory."}
+                {FSLExceptionType.UnableToAccess, "You are unable to access this directory."},
+                {FSLExceptionType.PathIsFileOrIOError, "Seems that path is pointing to file or that you've encountered I/O error."},
+                {FSLExceptionType.FileOrDirectoryNotFound, "File with given path was not found."}
             };
 
         public FilesystemLayerException(FSLExceptionType type) : base(TypeToMessageMapping[type])

@@ -18,7 +18,7 @@ namespace VHS.System.FilenamesCollector
         {
             var itemsInCurrentPath = new List<string>();
             AddFilesInCurrentPath(ref itemsInCurrentPath);
-            AddSubdirectoriesInCurrentPathAndTheirContent(ref itemsInCurrentPath);
+            AddContentOfSubdirectories(ref itemsInCurrentPath);
             return itemsInCurrentPath;
         }
 
@@ -28,11 +28,9 @@ namespace VHS.System.FilenamesCollector
             items.AddRange(filesInCurrentDirectory);
         }
 
-        private void AddSubdirectoriesInCurrentPathAndTheirContent(ref List<string> items)
+        private void AddContentOfSubdirectories(ref List<string> items)
         {
-
             var subdirectoriesOfCurrentDirectory = _fsl.GetAllSubdirectoriesInDirectory(_basePath);
-            items.AddRange(subdirectoriesOfCurrentDirectory);
             AddContentOfSubdirectories(ref items, subdirectoriesOfCurrentDirectory);
         }
 
@@ -47,7 +45,12 @@ namespace VHS.System.FilenamesCollector
 
         private IEnumerable<string> AppendSubdirectoryPathTo(List<string> subdirFiles, string subdirectory)
         {
-            return subdirFiles.Select(x => subdirectory + "/" + x);
+            return Enumerable.Select<string, string>(subdirFiles, file => AppendSubdirPathToFile(subdirectory, file));
+        }
+
+        private static string AppendSubdirPathToFile(string subdirectory, string file)
+        {
+            return subdirectory + "/" + file;
         }
     }
 }

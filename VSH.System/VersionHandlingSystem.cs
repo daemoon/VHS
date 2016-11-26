@@ -6,6 +6,10 @@ namespace VHS.System
     {
         public VersionHandlingSystem(string path)
         {
+            //var infoGatherer = new FileInfoCollector();
+            //Get old .VHS File
+            //Compare files in report and new file list an
+
         }
     }
 }

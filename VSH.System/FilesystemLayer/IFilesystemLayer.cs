@@ -6,5 +6,6 @@ namespace VHS.System.FilesystemLayer
     {
         List<string> GetAllFilesInDirectory(string directoryName);
         List<string> GetAllSubdirectoriesInDirectory(string directoryName);
+        byte[] GetContentsOfFile(string fileName);
     }
 }

@@ -60,10 +60,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ContentHashingProviderTests.cs" />
     <Compile Include="DirectoryProbeTests.cs" />
     <Compile Include="DummyTests.cs" />
+    <Compile Include="FileInfoCollectorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FilesystemLayerTests.cs" />
+    <Compile Include="ByteToStringConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VSH.System\VHS.System.csproj">
