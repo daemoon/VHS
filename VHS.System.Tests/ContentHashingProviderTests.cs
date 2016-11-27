@@ -21,7 +21,7 @@ namespace VHS.System.Tests
             var _fsl = new Mock<IFilesystemLayer>();
             var chp = new ContentHashingProvider(_fsl.Object, hashProviderMock.Object);
 
-            var result = chp.GetAndHashContentOfFile("dummyPath");
+            var result = chp.GetContentOfFileAndHashIt("dummyPath");
 
             Assert.AreEqual("123", result);
         }

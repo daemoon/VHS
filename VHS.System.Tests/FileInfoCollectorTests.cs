@@ -21,7 +21,7 @@ namespace VHS.System.Tests
             fnc.Setup(m => m.ReturnAllFilenamesInBasePath(It.IsAny<string>()))
                 .Returns(new List<string>());
             var hashProvider = new Mock<IContentHashingProvider>();
-            hashProvider.Setup(m => m.GetAndHashContentOfFile(It.IsAny<string>())).Returns("123");
+            hashProvider.Setup(m => m.GetContentOfFileAndHashIt(It.IsAny<string>())).Returns("123");
             var fic = new FileInfoCollector(fsl.Object, fnc.Object, hashProvider.Object);
 
             var result = fic.CollectFileInfos("dummyPath");
@@ -39,15 +39,15 @@ namespace VHS.System.Tests
             fnc.Setup(m => m.ReturnAllFilenamesInBasePath(It.IsAny<string>()))
                 .Returns(new List<string>() {"file1.txt", "file2.txt"});
             var hashProvider = new Mock<IContentHashingProvider>();
-            hashProvider.Setup(m => m.GetAndHashContentOfFile(It.IsAny<string>())).Returns("123");
+            hashProvider.Setup(m => m.GetContentOfFileAndHashIt(It.IsAny<string>())).Returns("123");
             var fic = new FileInfoCollector(fsl.Object, fnc.Object, hashProvider.Object);
 
             var result = fic.CollectFileInfos("dummyPath");
 
             Assert.IsInstanceOfType(result, typeof(List<FileInfoCollector.FileInfo>));
             Assert.IsTrue(result.Count == 2);
-            Assert.IsTrue(result.Contains(new FileInfoCollector.FileInfo() {FileName = "file1.txt", Hash = "123"}));
-            Assert.IsTrue(result.Contains(new FileInfoCollector.FileInfo() { FileName = "file2.txt", Hash = "123" }));
+            Assert.IsTrue(result.Contains(new FileInfoCollector.FileInfo() {FilePath = "file1.txt", Hash = "123"}));
+            Assert.IsTrue(result.Contains(new FileInfoCollector.FileInfo() { FilePath = "file2.txt", Hash = "123" }));
 
         }
 

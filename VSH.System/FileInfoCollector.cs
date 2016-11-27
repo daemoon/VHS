@@ -27,25 +27,25 @@ namespace VHS.System
         {
             var fileInfos = new List<FileInfo>();
             var allFiles = _fnc.ReturnAllFilenamesInBasePath(basePath);
-            fileInfos.AddRange(FetchFileInfosFor(allFiles));
+            fileInfos.AddRange(CreateFileInfosFor(allFiles));
             return fileInfos; ;
 
         }
 
-        private List<FileInfo> FetchFileInfosFor(IEnumerable<string> allFiles)
+        private List<FileInfo> CreateFileInfosFor(IEnumerable<string> allFiles)
         {
             var fileInfos = new List<FileInfo>();
             foreach (var file in allFiles)
             {
-                var fileContentHash = _contentHashingProvider.GetAndHashContentOfFile(file);
-                fileInfos.Add(new FileInfo() { FileName = file, Hash = fileContentHash});
+                var fileContentHash = _contentHashingProvider.GetContentOfFileAndHashIt(file);
+                fileInfos.Add(new FileInfo() { FilePath = file, Hash = fileContentHash});
             }
             return fileInfos;
         }
 
         public struct FileInfo
         {
-            public string FileName;
+            public string FilePath;
             public string Hash;
         }
     }

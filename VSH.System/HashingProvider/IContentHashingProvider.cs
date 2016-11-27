@@ -2,6 +2,6 @@
 {
     public interface IContentHashingProvider 
     {
-        string GetAndHashContentOfFile(string fileName);
+        string GetContentOfFileAndHashIt(string fileName);
     }
 }

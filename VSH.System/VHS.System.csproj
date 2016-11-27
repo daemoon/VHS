@@ -46,12 +46,17 @@
     <Compile Include="FilenamesCollector\DirectoryProbe.cs" />
     <Compile Include="FilesystemLayer\FilesystemExceptionHandlerWrapper.cs" />
     <Compile Include="FilesystemLayer\FilesystemLayer.cs" />
-    <Compile Include="FilesystemLayer\FilesystemLayerException.cs" />
+    <Compile Include="FilesystemLayer\CommonFileSystemLayerException.cs" />
     <Compile Include="FilesystemLayer\IFilesystemLayer.cs" />
     <Compile Include="HashingProvider\IContentHashingProvider.cs" />
     <Compile Include="FilenamesCollector\IFilenamesCollector.cs" />
     <Compile Include="HashingProvider\IHashProvider.cs" />
     <Compile Include="HashingProvider\SHA1HashProvider.cs" />
+    <Compile Include="LogHandling\ILogLineToFileInfoConverter.cs" />
+    <Compile Include="LogHandling\LogFileGatherer.cs" />
+    <Compile Include="LogHandling\LogFileLinesFileInfoConverter.cs" />
+    <Compile Include="LogHandling\LogLineToFileInfoConverter.cs" />
+    <Compile Include="LogHandling\LogInfoGatherer.cs" />
     <Compile Include="VersionHandlingSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

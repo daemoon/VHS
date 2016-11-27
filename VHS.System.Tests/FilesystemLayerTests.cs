@@ -13,42 +13,42 @@ namespace VHS.System.Tests
             _filesystemLayer = new FilesystemLayer.FilesystemLayer();
         }
         [TestMethod]
-        [ExpectedException(typeof(FilesystemLayerException))]
+        [ExpectedException(typeof(CommonFileSystemLayerException))]
         public void GetAllSubirectoriesEmptyFilenameShouldThrowIncorrectNameException()
         {
             _filesystemLayer.GetAllSubdirectoriesInDirectory(string.Empty);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(FilesystemLayerException))]
+        [ExpectedException(typeof(CommonFileSystemLayerException))]
         public void GetAllSubirectoriesNullFilenameShouldThrowIncorrectNameException()
         {
             _filesystemLayer.GetAllSubdirectoriesInDirectory(null);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(FilesystemLayerException))]
+        [ExpectedException(typeof(CommonFileSystemLayerException))]
         public void GetAllSubirectoriesInvalidCharsShouldThrowIncorrectNameException()
         {
             _filesystemLayer.GetAllSubdirectoriesInDirectory(@"<>");
         }
 
         [TestMethod]
-        [ExpectedException(typeof(FilesystemLayerException))]
+        [ExpectedException(typeof(CommonFileSystemLayerException))]
         public void GetAllFilesEmptyFilenameShouldThrowIncorrectNameException()
         {
             _filesystemLayer.GetAllFilesInDirectory(string.Empty);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(FilesystemLayerException))]
+        [ExpectedException(typeof(CommonFileSystemLayerException))]
         public void GetAllFilesNullFilenameShouldThrowIncorrectNameException()
         {
             _filesystemLayer.GetAllFilesInDirectory(null);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(FilesystemLayerException))]
+        [ExpectedException(typeof(CommonFileSystemLayerException))]
         public void GetAllFilesInvalidCharsShouldThrowIncorrectNameException()
         {
             _filesystemLayer.GetAllFilesInDirectory(@"<>");

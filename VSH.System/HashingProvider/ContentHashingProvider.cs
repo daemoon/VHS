@@ -13,9 +13,9 @@ namespace VHS.System
             _hashProvider = hashProvider;
         }
 
-        public string GetAndHashContentOfFile(string fileName)
+        public string GetContentOfFileAndHashIt(string fileName)
         {
-            var content = _fsl.GetContentsOfFile(fileName);
+            var content = _fsl.GetByteContentsOfFile(fileName);
             return _hashProvider.HashBytes(content);
         }
     }

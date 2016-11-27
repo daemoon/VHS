@@ -15,19 +15,24 @@ namespace VHS.System.FilesystemLayer
             catch (Exception ex)
                 when (ex is ArgumentException || ex is PathTooLongException || ex is NotSupportedException)
             {
-                throw new FilesystemLayerException(FilesystemLayerException.FSLExceptionType.IncorrectName);
+                throw new CommonFileSystemLayerException(CommonFileSystemLayerException.FSLExceptionType.IncorrectName);
             }
             catch (Exception ex) when (ex is UnauthorizedAccessException || ex is SecurityException)
             {
-                throw new FilesystemLayerException(FilesystemLayerException.FSLExceptionType.UnableToAccess);
+                throw new CommonFileSystemLayerException(CommonFileSystemLayerException.FSLExceptionType.UnableToAccess);
             }
-            catch (Exception ex) when (ex is DirectoryNotFoundException || ex is FileNotFoundException)
+            catch (Exception ex) when (ex is DirectoryNotFoundException)
             {
-                throw new FilesystemLayerException(FilesystemLayerException.FSLExceptionType.FileOrDirectoryNotFound);
+                throw new CommonFileSystemLayerException(
+                    CommonFileSystemLayerException.FSLExceptionType.DirectoryNotFound);
+            }
+            catch (FileSystemLayerFileNotFoundException)
+            {
+                throw new FileSystemLayerFileNotFoundException();
             }
             catch (IOException)
             {
-                throw new FilesystemLayerException(FilesystemLayerException.FSLExceptionType.PathIsFileOrIOError);
+                throw new CommonFileSystemLayerException(CommonFileSystemLayerException.FSLExceptionType.PathIsFileOrIOError);
             }
         }
     }

@@ -26,17 +26,23 @@ namespace VHS.System.FilesystemLayer
             return subdirectories?.ToList() ?? new List<string>();
         }
 
-        public byte[] GetContentsOfFile(string fileName)
+        public byte[] GetByteContentsOfFile(string fileName)
         {
             CheckIfFilenameIsNullOrEmpty(fileName);
             return _fslExceptionHandlerWrapper.HandleExceptions(() => File.ReadAllBytes(fileName));
+        }
+
+        public string[] GetStringLinesOfFile(string fileName)
+        {
+            CheckIfFilenameIsNullOrEmpty(fileName);
+            return _fslExceptionHandlerWrapper.HandleExceptions(() => File.ReadAllLines(fileName));
         }
 
         private void CheckIfFilenameIsNullOrEmpty(string directoryName)
         {
             if (string.IsNullOrEmpty(directoryName))
             {
-                throw new FilesystemLayerException(FilesystemLayerException.FSLExceptionType.IncorrectName);
+                throw new CommonFileSystemLayerException(CommonFileSystemLayerException.FSLExceptionType.IncorrectName);
             }
         }
     }
