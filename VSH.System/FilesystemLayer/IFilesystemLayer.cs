@@ -8,5 +8,6 @@ namespace VHS.System.FilesystemLayer
         List<string> GetAllSubdirectoriesInDirectory(string directoryName);
         byte[] GetByteContentsOfFile(string fileName);
         string[] GetStringLinesOfFile(string fileName);
+        void WriteFile(List<string> lines, string fileName);
     }
 }

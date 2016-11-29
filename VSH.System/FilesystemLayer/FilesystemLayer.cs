@@ -38,6 +38,16 @@ namespace VHS.System.FilesystemLayer
             return _fslExceptionHandlerWrapper.HandleExceptions(() => File.ReadAllLines(fileName));
         }
 
+        public void WriteFile(List<string> lines, string fileName)
+        {
+            CheckIfFilenameIsNullOrEmpty(fileName);
+            _fslExceptionHandlerWrapper.HandleExceptions<bool>(() =>
+            {
+                File.WriteAllLines(fileName, lines);
+                return true;
+            });
+        }
+
         private void CheckIfFilenameIsNullOrEmpty(string directoryName)
         {
             if (string.IsNullOrEmpty(directoryName))

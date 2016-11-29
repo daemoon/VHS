@@ -13,16 +13,14 @@ namespace VHS.System.Tests
     public class LogFileGatherTest
     {
         [TestMethod]
-        public void GetInfoLinesShouldReturnEmptyListIfFileDoesntExists()
+        [ExpectedException(typeof(LfgLogFileDoesntExistException))]
+        public void GetInfoLinesShouldThrowExceptionIfFileDoesntExists()
         {
             var fslMock = new Mock<IFilesystemLayer>();
             fslMock.Setup(m => m.GetStringLinesOfFile(It.IsAny<string>())).Throws(new FileSystemLayerFileNotFoundException());
             var lfg = new LogFileGatherer(fslMock.Object);
 
             var result = lfg.GetInfoLinesFromLog("dummy");
-
-            Assert.IsInstanceOfType(result, typeof(List<string>));
-            Assert.IsTrue(result.Count == 0);
         }
 
         [TestMethod]

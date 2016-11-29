@@ -17,10 +17,24 @@ namespace VHS.System.Tests
             const string filePath = @"C:/Folder/File";
             const string hash = "abcd";
             var converter = new LogLineToFileInfoConverter();
-            var input = filePath + "|" + hash;
-            var expectedOutput = new FileInfoCollector.FileInfo() {FilePath = filePath, Hash = hash};
+            var input = filePath + converter.Delimeter + hash;
+            var expectedOutput = new FileInfoCollector.FileInformations() {FilePath = filePath, Hash = hash};
 
             var result = converter.Convert(input);
+
+            Assert.AreEqual(expectedOutput, result);
+        }
+
+        [TestMethod()]
+        public void RevertShouldCreateEqualFileInfo()
+        {
+            const string filePath = @"C:/Folder/File";
+            const string hash = "abcd";
+            var converter = new LogLineToFileInfoConverter();
+            var input = new FileInfoCollector.FileInformations() {FilePath = filePath, Hash = hash};
+            var expectedOutput = filePath + converter.Delimeter + hash;
+
+            var result = converter.Revert(input);
 
             Assert.AreEqual(expectedOutput, result);
         }

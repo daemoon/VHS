@@ -25,7 +25,7 @@ namespace VHS.System
             }
             catch (FileSystemLayerFileNotFoundException)
             {
-                lines = null;
+                throw new LfgLogFileDoesntExistException();
             }
             if (lines == null || lines.Length == 0)
             {

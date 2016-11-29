@@ -2,6 +2,7 @@
 {
     public interface ILogLineToFileInfoConverter
     {
-        FileInfoCollector.FileInfo Convert(string logLine);
+        FileInfoCollector.FileInformations Convert(string logLine);
+        string Revert(FileInfoCollector.FileInformations fileInformations);
     }
 }

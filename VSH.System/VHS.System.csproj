@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilesystemLayer\FileSystemLayerFileNotFoundException.cs" />
+    <Compile Include="ModificationLabel\AddedModificationLabel.cs" />
+    <Compile Include="EFileModification.cs" />
+    <Compile Include="IModificationClassificator.cs" />
+    <Compile Include="InfoPairing\CompareFileInfoOnPath.cs" />
     <Compile Include="HashingProvider\ByteToStringConverter.cs" />
     <Compile Include="HashingProvider\ContentHashingProvider.cs" />
     <Compile Include="FileInfoCollector.cs" />
@@ -52,11 +57,24 @@
     <Compile Include="FilenamesCollector\IFilenamesCollector.cs" />
     <Compile Include="HashingProvider\IHashProvider.cs" />
     <Compile Include="HashingProvider\SHA1HashProvider.cs" />
+    <Compile Include="InfoPairing\IInfoComparer.cs" />
+    <Compile Include="InfoPairing\InfoPair.cs" />
+    <Compile Include="InfoPairing\InfoPairer.cs" />
+    <Compile Include="InfoPairing\IPairCreator.cs" />
     <Compile Include="LogHandling\ILogLineToFileInfoConverter.cs" />
+    <Compile Include="LogHandling\LfgLogFileDoesntExistException.cs" />
     <Compile Include="LogHandling\LogFileGatherer.cs" />
     <Compile Include="LogHandling\LogFileLinesFileInfoConverter.cs" />
     <Compile Include="LogHandling\LogLineToFileInfoConverter.cs" />
     <Compile Include="LogHandling\LogInfoGatherer.cs" />
+    <Compile Include="InfoPairing\PairCreator.cs" />
+    <Compile Include="ModificationClassificator.cs" />
+    <Compile Include="ModificationLabel\ModificationLabel.cs" />
+    <Compile Include="ModificationLabel\ModifiedModificationLabel.cs" />
+    <Compile Include="ModificationLabel\NoChangeModificationLabel.cs" />
+    <Compile Include="PerFileModification.cs" />
+    <Compile Include="PFMModificationLabelFactory.cs" />
+    <Compile Include="ModificationLabel\RemovedModificationLabel.cs" />
     <Compile Include="VersionHandlingSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

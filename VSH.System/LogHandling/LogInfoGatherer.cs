@@ -16,9 +16,8 @@ namespace VHS.System
             _il2fi = new LogFileLinesFileInfoConverter(new LogLineToFileInfoConverter());
         }
 
-        public List<FileInfoCollector.FileInfo> GetFileInfoLogFromPath(string path)
+        public List<FileInfoCollector.FileInformations> GetFileInfoLogFromPath(string path)
         {
-
             //TODO: unit test this
             var infoLines = _lfg.GetInfoLinesFromLog(path);
             return _il2fi.ConvertAll(infoLines);

@@ -16,7 +16,7 @@ namespace VHS.System.Tests
         public void ConvertAllShouldReturnEmptyListOnEmptyInput()
         {
             var converterMock = new Mock<ILogLineToFileInfoConverter>();
-            var expectedFileInfo = new FileInfoCollector.FileInfo() { FilePath = "dummy", Hash = "hash" };
+            var expectedFileInfo = new FileInfoCollector.FileInformations() { FilePath = "dummy", Hash = "hash" };
             converterMock.Setup(m => m.Convert(It.IsAny<string>()))
                 .Returns(expectedFileInfo);
             var converter = new LogFileLinesFileInfoConverter(converterMock.Object);
@@ -25,7 +25,7 @@ namespace VHS.System.Tests
             var result = converter.ConvertAll(input);
 
             Assert.IsTrue(result.Count == 0);
-            Assert.IsInstanceOfType(result, typeof(List<FileInfoCollector.FileInfo>));
+            Assert.IsInstanceOfType(result, typeof(List<FileInfoCollector.FileInformations>));
 
 
         }
@@ -34,7 +34,7 @@ namespace VHS.System.Tests
         public void ConvertAllShouldProcessInput()
         {
             var converterMock = new Mock<ILogLineToFileInfoConverter>();
-            var expectedFileInfo = new FileInfoCollector.FileInfo() {FilePath = "dummy", Hash = "hash"};
+            var expectedFileInfo = new FileInfoCollector.FileInformations() {FilePath = "dummy", Hash = "hash"};
             converterMock.Setup(m => m.Convert(It.IsAny<string>()))
                 .Returns(expectedFileInfo);
             var converter = new LogFileLinesFileInfoConverter(converterMock.Object);
@@ -44,6 +44,41 @@ namespace VHS.System.Tests
 
             Assert.IsTrue(result.Count == 3);
             Assert.AreEqual(expectedFileInfo,result[0]);
+
+
+        }
+
+        [TestMethod()]
+        public void RevertAllShouldReturnEmptyListOnEmptyInput()
+        {
+            var converterMock = new Mock<ILogLineToFileInfoConverter>();
+            const string expectedLines = "line";
+            converterMock.Setup(m => m.Revert(It.IsAny<FileInfoCollector.FileInformations>()))
+                .Returns(expectedLines);
+            var converter = new LogFileLinesFileInfoConverter(converterMock.Object);
+            var input = new List<FileInfoCollector.FileInformations>() { };
+
+            var result = converter.RevertAll(input);
+
+            Assert.IsTrue(result.Count == 0);
+            Assert.IsInstanceOfType(result, typeof(List<string>));
+
+
+        }
+
+        [TestMethod()]
+        public void RevertAllShouldProcessInput()
+        {
+            var converterMock = new Mock<ILogLineToFileInfoConverter>();
+            var expectedFileInfo = new FileInfoCollector.FileInformations() { FilePath = "dummy", Hash = "hash" };
+            converterMock.Setup(m => m.Convert(It.IsAny<string>()))
+                .Returns(expectedFileInfo);
+            var converter = new LogFileLinesFileInfoConverter(converterMock.Object);
+            var input = new List<FileInfoCollector.FileInformations>() { new FileInfoCollector.FileInformations(), new FileInfoCollector.FileInformations() };
+
+            var result = converter.RevertAll(input);
+
+            Assert.IsTrue(result.Count == 2);
 
 
         }

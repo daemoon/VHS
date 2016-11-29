@@ -12,9 +12,14 @@ namespace VHS.System
             _converter = converter;
         }
 
-        public List<FileInfoCollector.FileInfo> ConvertAll(List<string> logLines )
+        public List<FileInfoCollector.FileInformations> ConvertAll(List<string> logLines )
         {
             return logLines.Select(x => _converter.Convert(x)).ToList();
+        }
+
+        public List<string> RevertAll(ICollection<FileInfoCollector.FileInformations> fileInfos)
+        {
+            return fileInfos.Select(x => _converter.Revert(x)).ToList();
         }
     }
 }

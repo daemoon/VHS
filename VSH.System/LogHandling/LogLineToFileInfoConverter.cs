@@ -2,11 +2,20 @@
 {
     public class LogLineToFileInfoConverter : ILogLineToFileInfoConverter
     {
-        public FileInfoCollector.FileInfo Convert(string logLine)
-        {
-            var splittedLine = logLine.Split('|');
+        public char Delimeter = '|';
 
-            return new FileInfoCollector.FileInfo() {FilePath = splittedLine[0], Hash = splittedLine[1]};
+        public FileInfoCollector.FileInformations Convert(string logLine)
+        {
+            var splittedLine = logLine.Split(Delimeter);
+
+            return new FileInfoCollector.FileInformations() {FilePath = splittedLine[0], Hash = splittedLine[1]};
         }
+
+        public string Revert(FileInfoCollector.FileInformations fileInformations)
+        {
+            return fileInformations.FilePath + Delimeter + fileInformations.Hash;
+        }
+
+        
     }
 }

@@ -26,7 +26,7 @@ namespace VHS.System.Tests
 
             var result = fic.CollectFileInfos("dummyPath");
 
-            Assert.IsInstanceOfType(result, typeof(List<FileInfoCollector.FileInfo>));
+            Assert.IsInstanceOfType(result, typeof(List<FileInfoCollector.FileInformations>));
             Assert.IsTrue(result.Count == 0);
 
         }
@@ -44,10 +44,10 @@ namespace VHS.System.Tests
 
             var result = fic.CollectFileInfos("dummyPath");
 
-            Assert.IsInstanceOfType(result, typeof(List<FileInfoCollector.FileInfo>));
+            Assert.IsInstanceOfType(result, typeof(List<FileInfoCollector.FileInformations>));
             Assert.IsTrue(result.Count == 2);
-            Assert.IsTrue(result.Contains(new FileInfoCollector.FileInfo() {FilePath = "file1.txt", Hash = "123"}));
-            Assert.IsTrue(result.Contains(new FileInfoCollector.FileInfo() { FilePath = "file2.txt", Hash = "123" }));
+            Assert.IsTrue(result.Contains(new FileInfoCollector.FileInformations() {FilePath = "file1.txt", Hash = "123"}));
+            Assert.IsTrue(result.Contains(new FileInfoCollector.FileInformations() { FilePath = "file2.txt", Hash = "123" }));
 
         }
 
