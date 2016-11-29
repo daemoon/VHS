@@ -23,20 +23,18 @@ namespace VHS.System
             {
                 var basicLogFileNameProvider = new BasicLogFileNameProvider();
                 var logFileRemover = new LogFileRemover(basicLogFileNameProvider);
-                var currentFileInfo = new FileInfoCollector(_fsl).CollectFileInfos(path).ToList();
+                var currentFileInfo = new FileInfoCollector(_fsl).CollectFileInfos(path);
                 var currentFileInfoWithoutLogFile = logFileRemover.Remove(currentFileInfo);
-                
                 try
                 {
-
-                    var previousLog = new LogInfoGatherer(_fsl, basicLogFileNameProvider).GetFileInfoLogFromPath(path);
-                    var previousLogWithoutLogFile = logFileRemover.Remove(previousLog);
-                    var pairedInfos =
+                    var previousLogFileInfo = new LogInfoGatherer(_fsl, basicLogFileNameProvider).GetFileInfoLogFromPath(path);
+                    var previousLogFileInfoWithoutLogFile = logFileRemover.Remove(previousLogFileInfo);
+                    var pairedFileInfos =
                         new InfoPairer(new PairCreator(new FilenamePicker()), new CompareFileInfoOnPath()).Pair(
-                            currentFileInfoWithoutLogFile, previousLogWithoutLogFile);
+                            currentFileInfoWithoutLogFile, previousLogFileInfoWithoutLogFile);
                     var fileModificationsList =
                         new FileModificationsListCreator(new ModificationClassificator()).CalculateFileModifications(
-                            pairedInfos);
+                            pairedFileInfos);
                     var fileModificationsListWithoutUnmodified = new UnmodifiedRemover().AlterList(fileModificationsList);
                     report = new FileModificationsReport(fileModificationsListWithoutUnmodified,
                         new ModificationItemToStringConverterUsingToString());

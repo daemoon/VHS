@@ -4,6 +4,6 @@ namespace VHS.System
 {
     public interface IFilenamesCollector
     {
-        ICollection<string> ReturnAllFilenamesInBasePath(string basePath);
+        ICollection<string> ReturnAllFilenamesInBasePathAndSubfolders(string basePath);
     }
 }

@@ -11,7 +11,7 @@ namespace VHS.System.FilenamesCollector
             _filesystemLayer = fsl;
         }
 
-        public ICollection<string> ReturnAllFilenamesInBasePath(string basePath)
+        public ICollection<string> ReturnAllFilenamesInBasePathAndSubfolders(string basePath)
         {
             var probe = new DirectoryProbe(basePath, _filesystemLayer);
             return probe.Work();

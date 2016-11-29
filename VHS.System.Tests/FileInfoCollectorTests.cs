@@ -18,7 +18,7 @@ namespace VHS.System.Tests
         {
             var fsl = new Mock<IFilesystemLayer>();
             var fnc = new Mock<IFilenamesCollector>();
-            fnc.Setup(m => m.ReturnAllFilenamesInBasePath(It.IsAny<string>()))
+            fnc.Setup(m => m.ReturnAllFilenamesInBasePathAndSubfolders(It.IsAny<string>()))
                 .Returns(new List<string>());
             var hashProvider = new Mock<IContentHashingProvider>();
             hashProvider.Setup(m => m.GetContentOfFileAndHashIt(It.IsAny<string>())).Returns("123");
@@ -36,7 +36,7 @@ namespace VHS.System.Tests
         {
             var fsl = new Mock<IFilesystemLayer>();
             var fnc = new Mock<IFilenamesCollector>();
-            fnc.Setup(m => m.ReturnAllFilenamesInBasePath(It.IsAny<string>()))
+            fnc.Setup(m => m.ReturnAllFilenamesInBasePathAndSubfolders(It.IsAny<string>()))
                 .Returns(new List<string>() {"file1.txt", "file2.txt"});
             var hashProvider = new Mock<IContentHashingProvider>();
             hashProvider.Setup(m => m.GetContentOfFileAndHashIt(It.IsAny<string>())).Returns("123");

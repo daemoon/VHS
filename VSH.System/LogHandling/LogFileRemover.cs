@@ -16,8 +16,8 @@ namespace VHS.System
         public List<FileInfoCollector.FileInformations> Remove(List<FileInfoCollector.FileInformations> informations)
         {
             var logFileName = _lfnp.GetLogFileName();
-            return informations.Where(x => x.FilePath.Substring(x.FilePath.Length - logFileName.Length) != logFileName).ToList();
-            
+            return informations.Where(x => x.FilePath.Length < logFileName.Length || x.FilePath.Substring(x.FilePath.Length - logFileName.Length) != logFileName).ToList();
+
         }
     }
 }

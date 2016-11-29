@@ -23,16 +23,16 @@ namespace VHS.System
             _contentHashingProvider = contentHashingProvider;
         }
 
-        public ICollection<FileInformations> CollectFileInfos(string basePath)
+        public List<FileInformations> CollectFileInfos(string basePath)
         {
             var fileInfos = new List<FileInformations>();
-            var allFiles = _fnc.ReturnAllFilenamesInBasePath(basePath);
-            fileInfos.AddRange(CreateFileInfosFor(allFiles));
+            var allFiles = _fnc.ReturnAllFilenamesInBasePathAndSubfolders(basePath);
+            fileInfos.AddRange(CreateFileInfos(allFiles));
             return fileInfos; ;
 
         }
 
-        private List<FileInformations> CreateFileInfosFor(IEnumerable<string> allFiles)
+        private List<FileInformations> CreateFileInfos(IEnumerable<string> allFiles)
         {
             var fileInfos = new List<FileInformations>();
             foreach (var file in allFiles)
