@@ -87,8 +87,8 @@ namespace VHS.System.Tests
         public void WorkReturnsOnlyFilesInSubfolder()
         {
             const string subfolder = "subfolder";
-            const string file1 = "file1.txt";
-            const string file2 = "file2.txt";
+            const string file1 = subfolder + "/file1.txt";
+            const string file2 = subfolder + "/file2.txt";
             var flsMock = new Mock<IFilesystemLayer>();
             flsMock.Setup(layer => layer.GetAllFilesInDirectory(It.IsAny<string>())).Returns(new List<string>());
             flsMock.Setup(layer => layer.GetAllSubdirectoriesInDirectory(It.IsAny<string>())).Returns(new List<string>() { subfolder });
@@ -100,8 +100,8 @@ namespace VHS.System.Tests
 
             Assert.IsInstanceOfType(result, typeof(List<string>));
             Assert.IsTrue(result.Count == 2);
-            Assert.IsTrue(result.Contains(subfolder + "/" + file1));
-            Assert.IsTrue(result.Contains(subfolder + "/" + file2));
+            Assert.IsTrue(result.Contains(file1));
+            Assert.IsTrue(result.Contains(file2));
         }
 
         [TestMethod]
@@ -109,8 +109,8 @@ namespace VHS.System.Tests
         {
             const string subfolder = "subfolder";
             const string subsubfolder = "subfolder2";
-            const string file1 = "file1.txt";
-            const string file2 = "file2.txt";
+            const string file1 = subfolder + "/"  + "file1.txt";
+            const string file2 = subfolder + "/" + "file2.txt";
             var flsMock = new Mock<IFilesystemLayer>();
 
             flsMock.Setup(layer => layer.GetAllFilesInDirectory(It.IsAny<string>())).Returns(new List<string>());
@@ -125,8 +125,8 @@ namespace VHS.System.Tests
 
             Assert.IsInstanceOfType(result, typeof(List<string>));
             Assert.IsTrue(result.Count == 2);
-            Assert.IsTrue(result.Contains(subfolder + "/" + file1));
-            Assert.IsTrue(result.Contains(subfolder + "/" + file2));
+            Assert.IsTrue(result.Contains(file1));
+            Assert.IsTrue(result.Contains(file2));
         }
 
         [TestMethod]
@@ -135,7 +135,7 @@ namespace VHS.System.Tests
             const string subfolder = "subfolder";
             const string subsubfolder = "subfolder2";
             const string subsubsubfolder = "subfolder3";
-            const string file1 = "file1.txt";
+            const string file1 = subfolder+ "/" + subsubfolder + "/" + subsubsubfolder + "/" + "file1.txt";
             var flsMock = new Mock<IFilesystemLayer>();
 
             flsMock.Setup(layer => layer.GetAllFilesInDirectory(It.IsAny<string>())).Returns(new List<string>());
@@ -151,7 +151,7 @@ namespace VHS.System.Tests
 
             Assert.IsInstanceOfType(result, typeof(List<string>));
             Assert.IsTrue(result.Count == 1);
-            Assert.IsTrue(result.Contains(subfolder + "/" + subsubfolder + "/" +subsubsubfolder + "/" + file1));
+            Assert.IsTrue(result.Contains(file1));
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using VHS.System.FilesystemLayer;
 
 namespace VHS.System
@@ -9,10 +10,10 @@ namespace VHS.System
         private LogFileGatherer _lfg;
         private LogFileLinesFileInfoConverter _il2fi;
 
-        public LogInfoGatherer(FilesystemLayer.IFilesystemLayer fsl)
+        public LogInfoGatherer(FilesystemLayer.IFilesystemLayer fsl, ILogFileNameProvider _lfnp)
         {
             _fsl = fsl;
-            _lfg = new LogFileGatherer(fsl);
+            _lfg = new LogFileGatherer(fsl, _lfnp);
             _il2fi = new LogFileLinesFileInfoConverter(new LogLineToFileInfoConverter());
         }
 

@@ -39,7 +39,8 @@ namespace VHS.System.FilenamesCollector
             foreach (var subdirectory in subdirectories)
             {
                 var subdirFiles = new DirectoryProbe(subdirectory, _fsl).Work();
-                items.AddRange(AppendSubdirectoryPathTo(subdirFiles, subdirectory));
+                //items.AddRange(AppendSubdirectoryPathTo(subdirFiles, subdirectory));
+                items.AddRange(subdirFiles);
             }
         }
 

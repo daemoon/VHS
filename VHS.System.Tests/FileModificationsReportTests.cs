@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using VHS.System.ModificationsChecker;
 
 namespace VHS.System.Tests
 {
@@ -17,7 +18,7 @@ namespace VHS.System.Tests
             var report = new FileModificationsReport(null, i2s.Object);
             var expectedResult = "No change.";
 
-            var result = report.ToString();
+            var result = report.Get();
 
             Assert.AreEqual(expectedResult, result);
 
@@ -39,7 +40,7 @@ namespace VHS.System.Tests
             var report = new FileModificationsReport(input, i2s.Object);
             var expectedResult = converterOutput + Environment.NewLine + converterOutput + Environment.NewLine;
 
-            var result = report.ToString();
+            var result = report.Get();
 
             Assert.AreEqual(expectedResult, result);
         }

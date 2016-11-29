@@ -26,7 +26,7 @@ namespace VHS.System.FilesystemLayer
                 throw new CommonFileSystemLayerException(
                     CommonFileSystemLayerException.FSLExceptionType.DirectoryNotFound);
             }
-            catch (FileSystemLayerFileNotFoundException)
+            catch (FileNotFoundException)
             {
                 throw new FileSystemLayerFileNotFoundException();
             }

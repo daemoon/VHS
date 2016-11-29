@@ -1,4 +1,5 @@
 ﻿using System;
+using VHS.System.ModificationsChecker;
 
 namespace VHS.System
 {

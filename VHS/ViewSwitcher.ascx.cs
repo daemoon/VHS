@@ -1,4 +1,4 @@
-using System;
+using s = System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +9,7 @@ using Microsoft.AspNet.FriendlyUrls.Resolvers;
 
 namespace VHS
 {
-    public partial class ViewSwitcher : System.Web.UI.UserControl
+    public partial class ViewSwitcher : s.Web.UI.UserControl
     {
         protected string CurrentView { get; private set; }
 
@@ -17,7 +17,7 @@ namespace VHS
 
         protected string SwitchUrl { get; private set; }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, s.EventArgs e)
         {
             // Determine current view
             var isMobile = WebFormsFriendlyUrlResolver.IsMobileView(new HttpContextWrapper(Context));

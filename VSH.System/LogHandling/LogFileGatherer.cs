@@ -4,20 +4,21 @@ using VHS.System.FilesystemLayer;
 
 namespace VHS.System
 {
-    public class LogFileGatherer
+    public class LogFileGatherer 
     {
         private IFilesystemLayer _fsl;
-        private const string LogFileName = ".vhs";
+        private ILogFileNameProvider _lfnp;
 
-        public LogFileGatherer(IFilesystemLayer fsl)
+        public LogFileGatherer(IFilesystemLayer fsl, ILogFileNameProvider lfnp)
         {
             _fsl = fsl;
+            _lfnp = lfnp;
         }
 
         public List<string> GetInfoLinesFromLog(string path)
         {
             List<string> infoLines;
-            var logFileFullPath = path + LogFileName;
+            var logFileFullPath = path + @"\" + _lfnp.GetLogFileName();
             string[] lines;
             try
             {

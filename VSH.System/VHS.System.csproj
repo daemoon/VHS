@@ -40,14 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogFileNameProvider\BasicLogFileNameProvider.cs" />
+    <Compile Include="ModificationsChecker\FileModificationsListCreator.cs" />
+    <Compile Include="OutputReports\ErrorMessageReport.cs" />
+    <Compile Include="OutputReports\FileModificationsReport.cs" />
     <Compile Include="FilesystemLayer\FileSystemLayerFileNotFoundException.cs" />
+    <Compile Include="LogFileNameProvider\ILogFileNameProvider.cs" />
+    <Compile Include="ModificationsChecker\IModificationItemToStringConverter.cs" />
+    <Compile Include="LogHandling\LogFileRemover.cs" />
+    <Compile Include="LogHandling\LogFileWriter.cs" />
+    <Compile Include="ModificationsChecker\ModificationItemToStringConverterUsingToString.cs" />
     <Compile Include="ModificationLabel\AddedModificationLabel.cs" />
-    <Compile Include="EFileModification.cs" />
-    <Compile Include="IModificationClassificator.cs" />
+    <Compile Include="ModificationsChecker\EFileModification.cs" />
+    <Compile Include="ModificationsChecker\IModificationClassificator.cs" />
     <Compile Include="InfoPairing\CompareFileInfoOnPath.cs" />
     <Compile Include="HashingProvider\ByteToStringConverter.cs" />
     <Compile Include="HashingProvider\ContentHashingProvider.cs" />
-    <Compile Include="FileInfoCollector.cs" />
+    <Compile Include="FilenamesCollector\FileInfoCollector.cs" />
     <Compile Include="FilenamesCollector\DirectoryProbe.cs" />
     <Compile Include="FilesystemLayer\FilesystemExceptionHandlerWrapper.cs" />
     <Compile Include="FilesystemLayer\FilesystemLayer.cs" />
@@ -68,19 +77,23 @@
     <Compile Include="LogHandling\LogLineToFileInfoConverter.cs" />
     <Compile Include="LogHandling\LogInfoGatherer.cs" />
     <Compile Include="InfoPairing\PairCreator.cs" />
-    <Compile Include="ModificationClassificator.cs" />
+    <Compile Include="ModificationsChecker\ModificationClassificator.cs" />
     <Compile Include="ModificationLabel\ModificationLabel.cs" />
     <Compile Include="ModificationLabel\ModifiedModificationLabel.cs" />
     <Compile Include="ModificationLabel\NoChangeModificationLabel.cs" />
-    <Compile Include="PerFileModification.cs" />
-    <Compile Include="PFMModificationLabelFactory.cs" />
+    <Compile Include="OutputReports\NewDirectoryReport.cs" />
+    <Compile Include="OutputReports\OutputReport.cs" />
+    <Compile Include="ModificationsChecker\PerFileModification.cs" />
+    <Compile Include="ModificationLabel\PFMModificationLabelFactory.cs" />
     <Compile Include="ModificationLabel\RemovedModificationLabel.cs" />
+    <Compile Include="ModificationsChecker\UnmodifiedRemover.cs" />
     <Compile Include="VersionHandlingSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FilenamesCollector\FilenamesCollector.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

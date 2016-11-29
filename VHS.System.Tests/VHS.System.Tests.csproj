@@ -69,6 +69,7 @@
     <Compile Include="InfoPairerTests.cs" />
     <Compile Include="InfoPairing\FilenamePickerTests.cs" />
     <Compile Include="LogFileLinesFileInfoConverterTests.cs" />
+    <Compile Include="LogFileRemoverTests.cs" />
     <Compile Include="LogInfoGathererTests.cs" />
     <Compile Include="LogLineToFileInfoConverterTests.cs" />
     <Compile Include="ModificationClassificatorTests.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="FilesystemLayerTests.cs" />
     <Compile Include="ByteToStringConverterTest.cs" />
     <Compile Include="FileModificationsReportTests.cs" />
+    <Compile Include="UnmodifiedRemoverTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VSH.System\VHS.System.csproj">
