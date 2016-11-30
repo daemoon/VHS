@@ -14,7 +14,7 @@ namespace VHS.System
         {
             _fsl = fsl;
             _lfg = new LogFileGatherer(fsl, _lfnp);
-            _il2fi = new LogFileLinesFileInfoConverter(new LogLineToFileInfoConverter());
+            _il2fi = new LogFileLinesFileInfoConverter(new LogLinesToFileInfoConverter());
         }
 
         public List<FileInfoCollector.FileInformations> GetFileInfoLogFromPath(string path)

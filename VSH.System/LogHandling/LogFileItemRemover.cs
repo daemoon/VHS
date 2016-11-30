@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace VHS.System
 {
-    public class LogFileRemover
+    public class LogFileItemRemover
     {
         private readonly ILogFileNameProvider _lfnp;
 
-        public LogFileRemover(ILogFileNameProvider lfnp)
+        public LogFileItemRemover(ILogFileNameProvider lfnp)
         {
             _lfnp = lfnp;
         }

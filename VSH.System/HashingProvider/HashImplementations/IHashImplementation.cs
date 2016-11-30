@@ -1,6 +1,6 @@
 ﻿namespace VHS.System
 {
-    public interface IHashProvider
+    public interface IHashImplementation
     {
         string HashBytes(byte[] input);
     }

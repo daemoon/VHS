@@ -1,6 +1,6 @@
 ﻿namespace VHS.System
 {
-    public class LogLineToFileInfoConverter : ILogLineToFileInfoConverter
+    public class LogLinesToFileInfoConverter : ILogLineToFileInfoConverter
     {
         public char Delimeter = '|';
 

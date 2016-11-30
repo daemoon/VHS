@@ -5,18 +5,18 @@ namespace VHS.System
     public class ContentHashingProvider : IContentHashingProvider
     {
         private IFilesystemLayer _fsl;
-        private IHashProvider _hashProvider;
+        private IHashImplementation _hashImplementation;
 
-        public ContentHashingProvider(IFilesystemLayer fsl, IHashProvider hashProvider)
+        public ContentHashingProvider(IFilesystemLayer fsl, IHashImplementation hashImplementation)
         {
             _fsl = fsl;
-            _hashProvider = hashProvider;
+            _hashImplementation = hashImplementation;
         }
 
         public string GetContentOfFileAndHashIt(string fileName)
         {
             var content = _fsl.GetByteContentsOfFile(fileName);
-            return _hashProvider.HashBytes(content);
+            return _hashImplementation.HashBytes(content);
         }
     }
 }

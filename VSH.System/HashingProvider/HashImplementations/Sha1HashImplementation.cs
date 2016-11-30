@@ -2,12 +2,12 @@
 
 namespace VHS.System
 {
-    public class SHA1HashProvider : IHashProvider
+    public class Sha1HashImplementation : IHashImplementation
     {
         private SHA1 _sha1;
         private ByteToStringConverter _btsc;
 
-        public SHA1HashProvider()
+        public Sha1HashImplementation()
         {
             _sha1 = SHA1.Create();
             _btsc = new ByteToStringConverter();

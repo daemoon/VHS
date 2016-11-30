@@ -18,7 +18,7 @@ namespace VHS.System.Tests
             var lfn = new Mock<ILogFileNameProvider>();
             const string logFileName = "lfn";
             lfn.Setup(m => m.GetLogFileName()).Returns(logFileName);
-            var lfr = new LogFileRemover(lfn.Object);
+            var lfr = new LogFileItemRemover(lfn.Object);
             var file1 = new FileInfoCollector.FileInformations() {FilePath = "file1"};
             var file2 = new FileInfoCollector.FileInformations() { FilePath = "file2" };
             var logFile = new FileInfoCollector.FileInformations() { FilePath = logFileName };

@@ -13,7 +13,7 @@ namespace VHS.System
         {
             _fsl = fsl;
             _fnc = new FilenamesCollector.FilenamesCollector(_fsl);
-            _contentHashingProvider = new ContentHashingProvider(_fsl, new SHA1HashProvider());
+            _contentHashingProvider = new ContentHashingProvider(_fsl, new Sha1HashImplementation());
         }
 
         public FileInfoCollector(IFilesystemLayer fsl, IFilenamesCollector fnc, IContentHashingProvider contentHashingProvider)

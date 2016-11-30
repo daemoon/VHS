@@ -1,6 +1,6 @@
 ﻿namespace VHS.System
 {
-    public class BasicLogFileNameProvider : ILogFileNameProvider
+    public class DefaultLogFileNameProvider : ILogFileNameProvider
     {
         public string GetLogFileName()
         {

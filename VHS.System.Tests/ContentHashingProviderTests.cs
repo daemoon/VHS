@@ -16,7 +16,7 @@ namespace VHS.System.Tests
         [TestMethod()]
         public void HashContentShouldReturnHashedFileContent()
         {
-            var hashProviderMock = new Mock<IHashProvider>();
+            var hashProviderMock = new Mock<IHashImplementation>();
             hashProviderMock.Setup(m => m.HashBytes(It.IsAny<byte[]>())).Returns("123");
             var _fsl = new Mock<IFilesystemLayer>();
             var chp = new ContentHashingProvider(_fsl.Object, hashProviderMock.Object);

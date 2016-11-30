@@ -16,7 +16,7 @@ namespace VHS.System.Tests
         {
             const string filePath = @"C:/Folder/File";
             const string hash = "abcd";
-            var converter = new LogLineToFileInfoConverter();
+            var converter = new LogLinesToFileInfoConverter();
             var input = filePath + converter.Delimeter + hash;
             var expectedOutput = new FileInfoCollector.FileInformations() {FilePath = filePath, Hash = hash};
 
@@ -30,7 +30,7 @@ namespace VHS.System.Tests
         {
             const string filePath = @"C:/Folder/File";
             const string hash = "abcd";
-            var converter = new LogLineToFileInfoConverter();
+            var converter = new LogLinesToFileInfoConverter();
             var input = new FileInfoCollector.FileInformations() {FilePath = filePath, Hash = hash};
             var expectedOutput = filePath + converter.Delimeter + hash;
 
