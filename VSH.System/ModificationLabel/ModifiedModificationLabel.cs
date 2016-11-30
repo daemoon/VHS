@@ -1,4 +1,4 @@
-﻿namespace VHS.System
+﻿namespace VHS.System.ModificationLabel
 {
     public class ModifiedModificationLabel : ModificationLabel
     {

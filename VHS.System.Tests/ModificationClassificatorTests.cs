@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
-using VHS.System.ModificationsChecker;
+using VHS.System.InfoPairing;
+using VHS.System.ModificationsChecker.Classificators;
+using VHS.System.ModificationsChecker.Enums;
 
 namespace VHS.System.Tests
 {

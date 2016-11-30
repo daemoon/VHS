@@ -1,4 +1,4 @@
-﻿namespace VHS.System
+﻿namespace VHS.System.OutputReports
 {
     public abstract class OutputReport
     {

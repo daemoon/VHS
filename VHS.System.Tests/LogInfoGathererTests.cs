@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using VHS.System.FilesystemLayer;
+using VHS.System.FilesystemLayer.Exceptions;
+using VHS.System.LogHandling.Exceptions;
+using VHS.System.LogHandling.FileHandling;
+using VHS.System.LogHandling.LogFileNameProvider;
 
 namespace VHS.System.Tests
 {

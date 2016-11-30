@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using VHS.System.FileInfoCollectors;
+using VHS.System.LogHandling.LogFileNameProvider;
 
-namespace VHS.System
+namespace VHS.System.LogHandling
 {
     public class LogFileItemRemover
     {

@@ -6,7 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
+using VHS.System.FileInfoCollectors;
+using VHS.System.FilenamesCollector;
 using VHS.System.FilesystemLayer;
+using VHS.System.HashingProvider;
 
 namespace VHS.System.Tests
 {

@@ -73,11 +73,13 @@
     <Compile Include="LogInfoGathererTests.cs" />
     <Compile Include="LogLineToFileInfoConverterTests.cs" />
     <Compile Include="ModificationClassificatorTests.cs" />
+    <Compile Include="OutputReports\LineBreaker\HtmlLineBreakerTests.cs" />
     <Compile Include="PairCreatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FilesystemLayerTests.cs" />
     <Compile Include="ByteToStringConverterTest.cs" />
     <Compile Include="FileModificationsReportTests.cs" />
+    <Compile Include="ExceptionHandlingTest.cs" />
     <Compile Include="UnmodifiedRemoverTests.cs" />
   </ItemGroup>
   <ItemGroup>

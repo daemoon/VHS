@@ -8,13 +8,13 @@
         {
             string path = FormPath.Value;
             var report = new VHS.System.VersionHandlingSystem().Run(path);
-            result.InnerText = report.Get();
+            result.InnerHtml = report.Get();
         }
     </script>
         <div class="form-group">
 
             <input runat="server"  type="text" id="FormPath" class="form-control" />
-            <input type="submit" runat="server"   name="FormSubmit" value="Run!" class="btn-default" OnServerClick="RunVHS" />
+            <input type="submit" runat="server" name="FormSubmit" value="Run!" class="btn-default" OnServerClick="RunVHS" />
 
         </div>
     <div id="result" runat="server" >

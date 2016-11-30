@@ -1,4 +1,7 @@
-﻿namespace VHS.System.ModificationsChecker
+﻿using VHS.System.ModificationLabel.Factory;
+using VHS.System.ModificationsChecker.Enums;
+
+namespace VHS.System.ModificationsChecker.Entity
 {
     public struct PerFileModification
     {

@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VHS.System.ModificationsChecker;
+using VHS.System.ModificationsChecker.Entity;
+using VHS.System.ModificationsChecker.Enums;
+using VHS.System.ModificationsChecker.Removers;
 
 namespace VHS.System.Tests
 {

@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using VHS.System.FilesystemLayer;
+using VHS.System.HashingProvider;
+using VHS.System.HashingProvider.HashImplementations;
 
 namespace VHS.System.Tests
 {

@@ -1,6 +1,7 @@
 ﻿using System;
+using VHS.System.FileInfoCollectors;
 
-namespace VHS.System
+namespace VHS.System.InfoPairing.PairCreators
 {
     public class PairCreator : IPairCreator
     {

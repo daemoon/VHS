@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using VHS.System.FilenamesCollector;
 using VHS.System.FilesystemLayer;
+using VHS.System.HashingProvider;
+using VHS.System.HashingProvider.HashImplementations;
 
-namespace VHS.System
+namespace VHS.System.FileInfoCollectors
 {
     public class FileInfoCollector
     {

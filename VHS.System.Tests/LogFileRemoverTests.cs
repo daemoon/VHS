@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
+using VHS.System.FileInfoCollectors;
+using VHS.System.LogHandling;
+using VHS.System.LogHandling.LogFileNameProvider;
 
 namespace VHS.System.Tests
 {

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using VHS.System.ModificationsChecker.Entity;
+using VHS.System.ModificationsChecker.Enums;
 
-namespace VHS.System.ModificationsChecker
+namespace VHS.System.ModificationsChecker.Removers
 {
     public class UnmodifiedRemover
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace VHS.System
+namespace VHS.System.FilenamesCollector
 {
     public interface IFilenamesCollector
     {

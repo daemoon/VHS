@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using VHS.System.FileInfoCollectors;
 using VHS.System.FilesystemLayer;
+using VHS.System.LogHandling.Converters;
+using VHS.System.LogHandling.LogFileNameProvider;
 
-namespace VHS.System
+namespace VHS.System.LogHandling.FileHandling
 {
     public class LogFileWriter
     {

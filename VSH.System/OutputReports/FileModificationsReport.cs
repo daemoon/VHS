@@ -1,18 +1,24 @@
 ﻿using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using VHS.System.ModificationsChecker.Converters;
+using VHS.System.ModificationsChecker.Entity;
+using VHS.System.OutputReports.LineBreaker;
 
-namespace VHS.System.ModificationsChecker
+namespace VHS.System.OutputReports
 {
     public class FileModificationsReport : OutputReport
     {
         private List<PerFileModification> items;
         private IModificationItemToStringConverter _i2s;
+        private ILineBreaker _lb;
 
 
-        public FileModificationsReport(List<PerFileModification> items, IModificationItemToStringConverter i2S)
+        public FileModificationsReport(List<PerFileModification> items, IModificationItemToStringConverter i2S, ILineBreaker lb)
         {
             this.items = items;
             _i2s = i2S;
+            _lb = lb;
         }
 
         public override string Get()
@@ -24,7 +30,8 @@ namespace VHS.System.ModificationsChecker
             var sb = new StringBuilder();
             foreach (var item in items)
             {
-                sb.AppendLine(_i2s.Convert(item));
+                var newLine = _i2s.Convert(item);
+                sb.Append(_lb.AddLineBreak(newLine));
             }
             return sb.ToString();
         }

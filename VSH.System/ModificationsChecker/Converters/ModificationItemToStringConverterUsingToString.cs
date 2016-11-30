@@ -1,4 +1,6 @@
-﻿namespace VHS.System.ModificationsChecker
+﻿using VHS.System.ModificationsChecker.Entity;
+
+namespace VHS.System.ModificationsChecker.Converters
 {
     public class ModificationItemToStringConverterUsingToString : IModificationItemToStringConverter
     {

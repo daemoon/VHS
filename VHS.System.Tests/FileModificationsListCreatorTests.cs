@@ -6,7 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
-using VHS.System.ModificationsChecker;
+using VHS.System.InfoPairing;
+using VHS.System.ModificationsChecker.Classificators;
+using VHS.System.ModificationsChecker.Entity;
+using VHS.System.ModificationsChecker.ListCreators;
 
 namespace VHS.System.Tests
 {

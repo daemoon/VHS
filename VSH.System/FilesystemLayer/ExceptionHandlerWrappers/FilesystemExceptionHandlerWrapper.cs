@@ -1,8 +1,9 @@
 using System;
 using System.IO;
 using System.Security;
+using VHS.System.FilesystemLayer.Exceptions;
 
-namespace VHS.System.FilesystemLayer
+namespace VHS.System.FilesystemLayer.ExceptionHandlerWrappers
 {
     public class FilesystemExceptionHandlerWrapper
     {

@@ -1,4 +1,6 @@
-﻿namespace VHS.System
+﻿using VHS.System.FileInfoCollectors;
+
+namespace VHS.System.LogHandling.Converters.Single
 {
     public class LogLinesToFileInfoConverter : ILogLineToFileInfoConverter
     {

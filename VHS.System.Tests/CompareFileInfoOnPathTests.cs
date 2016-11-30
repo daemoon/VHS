@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VHS.System.FileInfoCollectors;
+using VHS.System.InfoPairing.InfoComparers;
 
 namespace VHS.System.Tests
 {

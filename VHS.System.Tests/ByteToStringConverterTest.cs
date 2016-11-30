@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VHS.System.HashingProvider.Converters;
 
 namespace VHS.System.Tests
 {

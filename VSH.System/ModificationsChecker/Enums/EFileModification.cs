@@ -1,4 +1,4 @@
-﻿namespace VHS.System.ModificationsChecker
+﻿namespace VHS.System.ModificationsChecker.Enums
 {
     public enum EFileModification
     {

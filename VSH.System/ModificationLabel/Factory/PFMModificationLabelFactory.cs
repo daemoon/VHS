@@ -1,7 +1,7 @@
 ﻿using System;
-using VHS.System.ModificationsChecker;
+using VHS.System.ModificationsChecker.Enums;
 
-namespace VHS.System
+namespace VHS.System.ModificationLabel.Factory
 {
     public class PFMModificationLabelFactory
     {

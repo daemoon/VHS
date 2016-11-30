@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VHS.System.FilesystemLayer;
+using VHS.System.FilesystemLayer.Exceptions;
 
 namespace VHS.System.Tests
 {

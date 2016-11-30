@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using VHS.System.FilesystemLayer;
+using VHS.System.FilesystemLayer.Exceptions;
+using VHS.System.LogHandling.Exceptions;
+using VHS.System.LogHandling.LogFileNameProvider;
 
-namespace VHS.System
+namespace VHS.System.LogHandling.FileHandling
 {
     public class LogFileGatherer 
     {

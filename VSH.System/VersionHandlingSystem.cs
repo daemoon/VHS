@@ -2,7 +2,23 @@
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
-using VHS.System.ModificationsChecker;
+using VHS.System.FileInfoCollectors;
+using VHS.System.FilesystemLayer.Exceptions;
+using VHS.System.InfoPairing;
+using VHS.System.InfoPairing.InfoComparers;
+using VHS.System.InfoPairing.PairCreators;
+using VHS.System.LogHandling;
+using VHS.System.LogHandling.Converters;
+using VHS.System.LogHandling.Converters.Single;
+using VHS.System.LogHandling.Exceptions;
+using VHS.System.LogHandling.FileHandling;
+using VHS.System.LogHandling.LogFileNameProvider;
+using VHS.System.ModificationsChecker.Classificators;
+using VHS.System.ModificationsChecker.Converters;
+using VHS.System.ModificationsChecker.ListCreators;
+using VHS.System.ModificationsChecker.Removers;
+using VHS.System.OutputReports;
+using VHS.System.OutputReports.LineBreaker;
 
 namespace VHS.System
 {
@@ -37,7 +53,7 @@ namespace VHS.System
                             pairedFileInfos);
                     var fileModificationsListWithoutUnmodified = new UnmodifiedRemover().AlterList(fileModificationsList);
                     report = new FileModificationsReport(fileModificationsListWithoutUnmodified,
-                        new ModificationItemToStringConverterUsingToString());
+                        new ModificationItemToStringConverterUsingToString(), new HtmlLineBreaker());
                 }
                 catch (LfgLogFileDoesntExistException)
                 {
@@ -46,7 +62,7 @@ namespace VHS.System
                 new LogFileWriter(_fsl, new LogFileLinesFileInfoConverter(new LogLinesToFileInfoConverter()),
                     logFileNameProvider).WriteLog(currentFileInfoWithoutLogFile, path);
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is FilesystemLayerException)
             {
                 report = new ErrorMessageReport(ex.Message);
             }

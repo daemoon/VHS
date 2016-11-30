@@ -1,4 +1,4 @@
-namespace VHS.System.FilesystemLayer
+namespace VHS.System.FilesystemLayer.Exceptions
 {
     public class FileSystemLayerFileNotFoundException : FilesystemLayerException
     {

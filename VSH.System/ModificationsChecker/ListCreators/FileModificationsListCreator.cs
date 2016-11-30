@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using VHS.System.InfoPairing;
+using VHS.System.ModificationsChecker.Classificators;
+using VHS.System.ModificationsChecker.Entity;
 
-namespace VHS.System.ModificationsChecker
+namespace VHS.System.ModificationsChecker.ListCreators
 {
     public class FileModificationsListCreator
     {

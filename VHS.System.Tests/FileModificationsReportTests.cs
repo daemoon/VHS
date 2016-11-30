@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using VHS.System.ModificationsChecker;
+using VHS.System.ModificationsChecker.Converters;
+using VHS.System.ModificationsChecker.Entity;
+using VHS.System.OutputReports;
+using VHS.System.OutputReports.LineBreaker;
 
 namespace VHS.System.Tests
 {
@@ -15,7 +18,8 @@ namespace VHS.System.Tests
         public void ReportForEmptyListReturnMessage()
         {
             Mock<IModificationItemToStringConverter> i2s = I2SSetup();
-            var report = new FileModificationsReport(null, i2s.Object);
+            Mock<ILineBreaker> ilbMock = LineBreakerMock();
+            var report = new FileModificationsReport(null, i2s.Object, ilbMock.Object);
             var expectedResult = "No change.";
 
             var result = report.Get();
@@ -23,6 +27,13 @@ namespace VHS.System.Tests
             Assert.AreEqual(expectedResult, result);
 
 
+        }
+
+        private static Mock<ILineBreaker> LineBreakerMock()
+        {
+            var ilbMock = new Mock<ILineBreaker>();
+            ilbMock.Setup(m => m.AddLineBreak(It.IsAny<string>())).Returns<string>(x => x);
+            return ilbMock;
         }
 
         private static Mock<IModificationItemToStringConverter> I2SSetup()
@@ -37,8 +48,9 @@ namespace VHS.System.Tests
         {
             Mock<IModificationItemToStringConverter> i2s = I2SSetup();
             List<PerFileModification> input = new List<PerFileModification>() {new PerFileModification(), new PerFileModification()};
-            var report = new FileModificationsReport(input, i2s.Object);
-            var expectedResult = converterOutput + Environment.NewLine + converterOutput + Environment.NewLine;
+            Mock<ILineBreaker> ilbMock = LineBreakerMock();
+            var report = new FileModificationsReport(input, i2s.Object, ilbMock.Object);
+            var expectedResult = converterOutput + converterOutput;
 
             var result = report.Get();
 

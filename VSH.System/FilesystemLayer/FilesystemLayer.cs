@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using VHS.System.FilesystemLayer.ExceptionHandlerWrappers;
+using VHS.System.FilesystemLayer.Exceptions;
 
 namespace VHS.System.FilesystemLayer
 {

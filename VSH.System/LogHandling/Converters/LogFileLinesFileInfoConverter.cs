@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using VHS.System.FileInfoCollectors;
+using VHS.System.LogHandling.Converters.Single;
 
-namespace VHS.System
+namespace VHS.System.LogHandling.Converters
 {
     public class LogFileLinesFileInfoConverter
     {

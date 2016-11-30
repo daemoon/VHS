@@ -1,4 +1,8 @@
-﻿namespace VHS.System.ModificationsChecker
+using VHS.System.InfoPairing;
+using VHS.System.ModificationsChecker.Entity;
+using VHS.System.ModificationsChecker.Enums;
+
+namespace VHS.System.ModificationsChecker.Classificators
 {
     public class ModificationClassificator : IModificationClassificator
     {

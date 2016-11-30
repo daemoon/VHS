@@ -1,4 +1,4 @@
-﻿namespace VHS.System
+﻿namespace VHS.System.LogHandling.LogFileNameProvider
 {
     public class DefaultLogFileNameProvider : ILogFileNameProvider
     {

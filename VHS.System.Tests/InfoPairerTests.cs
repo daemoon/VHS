@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
+using VHS.System.FileInfoCollectors;
+using VHS.System.InfoPairing;
+using VHS.System.InfoPairing.InfoComparers;
+using VHS.System.InfoPairing.PairCreators;
 
 namespace VHS.System.Tests
 {

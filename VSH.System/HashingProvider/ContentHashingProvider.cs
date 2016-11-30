@@ -1,6 +1,7 @@
 ﻿using VHS.System.FilesystemLayer;
+using VHS.System.HashingProvider.HashImplementations;
 
-namespace VHS.System
+namespace VHS.System.HashingProvider
 {
     public class ContentHashingProvider : IContentHashingProvider
     {

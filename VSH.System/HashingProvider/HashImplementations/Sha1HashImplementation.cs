@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography;
+using VHS.System.HashingProvider.Converters;
 
-namespace VHS.System
+namespace VHS.System.HashingProvider.HashImplementations
 {
     public class Sha1HashImplementation : IHashImplementation
     {

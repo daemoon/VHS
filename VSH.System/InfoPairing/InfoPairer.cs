@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using VHS.System.FileInfoCollectors;
+using VHS.System.InfoPairing.InfoComparers;
+using VHS.System.InfoPairing.PairCreators;
 
-namespace VHS.System
+namespace VHS.System.InfoPairing
 {
     public class InfoPairer
     {

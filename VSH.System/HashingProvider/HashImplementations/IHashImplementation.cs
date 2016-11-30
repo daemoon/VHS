@@ -1,4 +1,4 @@
-﻿namespace VHS.System
+﻿namespace VHS.System.HashingProvider.HashImplementations
 {
     public interface IHashImplementation
     {

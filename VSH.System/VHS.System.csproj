@@ -81,6 +81,8 @@
     <Compile Include="ModificationLabel\ModificationLabel.cs" />
     <Compile Include="ModificationLabel\ModifiedModificationLabel.cs" />
     <Compile Include="ModificationLabel\NoChangeModificationLabel.cs" />
+    <Compile Include="OutputReports\LineBreaker\HtmlLineBreaker.cs" />
+    <Compile Include="OutputReports\LineBreaker\ILineBreaker.cs" />
     <Compile Include="OutputReports\NewDirectoryReport.cs" />
     <Compile Include="OutputReports\OutputReport.cs" />
     <Compile Include="ModificationsChecker\Entity\PerFileModification.cs" />
